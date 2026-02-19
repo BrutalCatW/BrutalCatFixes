@@ -4,11 +4,5 @@
   "package": "com.github.brutalcatfixes.mixins",
   "refmap": "mixins.brutalcatfixes.refmap.json",
   "target": "@env(DEFAULT)",
-  "compatibilityLevel": "JAVA_8",
-  "mixins": [
-    "thaumcraft.MixinUtils",
-    "galacticraft.MixinChunkLoadingCallback"
-  ],
-  "client": [],
-  "server": []
+  "compatibilityLevel": "JAVA_8"
 }

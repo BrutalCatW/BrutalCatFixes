@@ -16,14 +16,6 @@ import cpw.mods.fml.relauncher.IFMLLoadingPlugin;
 @IFMLLoadingPlugin.MCVersion("1.7.10")
 public class BrutalCatFixesCore implements IFMLLoadingPlugin, IEarlyMixinLoader {
 
-    static {
-        try {
-            ConfigurationManager.registerConfig(BrutalCatFixesConfig.class);
-        } catch (ConfigException e) {
-            throw new RuntimeException(e);
-        }
-    }
-
     @Override
     public String getMixinConfig() {
         return "mixins.brutalcatfixes.json";
@@ -50,7 +42,13 @@ public class BrutalCatFixesCore implements IFMLLoadingPlugin, IEarlyMixinLoader 
     }
 
     @Override
-    public void injectData(Map<String, Object> data) {}
+    public void injectData(Map<String, Object> data) {
+        try {
+            ConfigurationManager.registerConfig(BrutalCatFixesConfig.class);
+        } catch (ConfigException e) {
+            throw new RuntimeException(e);
+        }
+    }
 
     @Override
     public String getAccessTransformerClass() {

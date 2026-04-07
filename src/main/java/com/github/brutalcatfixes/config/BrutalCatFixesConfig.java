@@ -8,7 +8,7 @@ public class BrutalCatFixesConfig {
 
     @Config.Comment("Enable Thaumcraft Utils optimization (replaces inefficient O(240) loop with O(1) heightmap lookup)")
     @Config.DefaultBoolean(true)
-    public static boolean fixThaumcraftUtils;
+    public static boolean fixThaumcraftUtils = true;
 
     @Config.Comment("Enable Galacticraft async-safe chunk loader save fix")
     @Config.DefaultBoolean(false)

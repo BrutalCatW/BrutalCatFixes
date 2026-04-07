@@ -23,6 +23,11 @@ public class BrutalCatFixesCore implements IFMLLoadingPlugin, IEarlyMixinLoader 
 
     @Override
     public List<String> getMixins(Set<String> loadedCoreMods) {
+        try {
+            ConfigurationManager.registerConfig(BrutalCatFixesConfig.class);
+        } catch (ConfigException e) {
+            throw new RuntimeException(e);
+        }
         return IMixins.getEarlyMixins(Mixins.class, loadedCoreMods);
     }
 
@@ -42,13 +47,7 @@ public class BrutalCatFixesCore implements IFMLLoadingPlugin, IEarlyMixinLoader 
     }
 
     @Override
-    public void injectData(Map<String, Object> data) {
-        try {
-            ConfigurationManager.registerConfig(BrutalCatFixesConfig.class);
-        } catch (ConfigException e) {
-            throw new RuntimeException(e);
-        }
-    }
+    public void injectData(Map<String, Object> data) {}
 
     @Override
     public String getAccessTransformerClass() {
